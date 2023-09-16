@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,19 +8,22 @@
   <body>
     <a-scene mindar-image="imageTargetSrc: https://cdn.glitch.global/ce8d4be0-a329-448a-9c40-739c2399029d/creatuve%20windows.mind?v=1694765990705;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
-	<img id="card" src="https://cdn.glitch.global/f6dfa233-c5e9-4b84-9f08-0635cf4803f2/CREATIVE%20WINDOWS%20CARD%20BACK.png?v=1694608992900" />
-<!-- 	<a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item> -->
-        <img crossorigin="anonymous" id="avatarModel" src="https://cdn.glitch.global/f6dfa233-c5e9-4b84-9f08-0635cf4803f2/CREATIVE%20WINDOWS%20CARD%20BACK.png?v=1694608992900">
+        <img id="card" src="https://cdn.glitch.global/f6dfa233-c5e9-4b84-9f08-0635cf4803f2/CREATIVE%20WINDOWS%20CARD%20BACK.png?v=1694608992900" />
+        <img id="phoneModel" src="https://cdn.glitch.global/ce8d4be0-a329-448a-9c40-739c2399029d/885caa5e-6331-4d2f-9340-c466bb360f85.image.png?v=1694852996450">
+        <img id="mailModel" src="https://cdn.glitch.global/ce8d4be0-a329-448a-9c40-739c2399029d/gmail.1016x1024.png?v=1694853279934">
+        <img id="whatsappModel" src="https://cdn.glitch.global/ce8d4be0-a329-448a-9c40-739c2399029d/apps-whatsapp-desktop.1024x1024.png?v=1694853285848">
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
-        <a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel"
-          animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
-<!--            <a-box material="src: #avatarModel" position="1 1 -1.5"  rotation="0 0 0"></a-box>       -->
+        <a-plane src="#card" position="0 0.5 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+        <!-- Make the images clickable by using click events -->
+        <a-image src="#phoneModel" position="0.6 0.15 0" geometry="primitive: circle" scale="0.075 0.075 1" cursor-listener></a-image>
+        <a-image src="#mailModel" position="0.6 0 0" geometry="primitive: circle" scale="0.075 0.075 1" cursor-listener></a-image>
+        <a-image src="#whatsappModel" position="0.6 -0.15 0" geometry="primitive: circle" scale="0.075 0.075 1" cursor-listener></a-image>
       </a-entity>
     </a-scene>
+    
   </body>
 </html>
