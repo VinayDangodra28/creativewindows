@@ -4,10 +4,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
-    
+    <style>
+      #example-scanning-overlay {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        opacity: 0.5;
+      }
+      #example-scanning-overlay > img {
+        width: 75vw;
+      }
+      #example-scanning-overlay.hidden {
+        display: none;
+      }
+      #button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .action-button {
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: #0073e6;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
-    <a-scene mindar-image="imageTargetSrc: https://cdn.glitch.global/ce8d4be0-a329-448a-9c40-739c2399029d/creatuve%20windows.mind?v=1694765990705;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <div id="example-scanning-overlay" class="hidden">
+      <img
+        crossorigin="anonymous"
+        id="scanning_hint_img"
+        src="https://cdn.glitch.global/ce8d4be0-a329-448a-9c40-739c2399029d/CREATIVE%20WINDOWS%20front.png?v=1694766893469"
+      />
+    </div>
+    <a-scene mindar-image="uiScanning: #example-scanning-overlay; imageTargetSrc: https://cdn.glitch.global/ce8d4be0-a329-448a-9c40-739c2399029d/creatuve%20windows.mind?v=1694765990705;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
         <img id="card" src="https://cdn.glitch.global/f6dfa233-c5e9-4b84-9f08-0635cf4803f2/CREATIVE%20WINDOWS%20CARD%20BACK.png?v=1694608992900" />
         <img id="phoneModel" src="https://cdn.glitch.global/ce8d4be0-a329-448a-9c40-739c2399029d/885caa5e-6331-4d2f-9340-c466bb360f85.image.png?v=1694852996450">
@@ -43,4 +81,4 @@ whatsappPlane.addEventListener("click", event => {
 });
     </script>
   </body>
-</html>
+</html>'?/'
