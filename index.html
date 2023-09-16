@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+    
   </head>
   <body>
     <a-scene mindar-image="imageTargetSrc: https://cdn.glitch.global/ce8d4be0-a329-448a-9c40-739c2399029d/creatuve%20windows.mind?v=1694765990705;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
@@ -14,16 +15,32 @@
         <img id="whatsappModel" src="https://cdn.glitch.global/ce8d4be0-a329-448a-9c40-739c2399029d/apps-whatsapp-desktop.1024x1024.png?v=1694853285848">
       </a-assets>
 
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="near: 10; far: 10000; objects: .clickable"></a-camera>
 
       <a-entity mindar-image-target="targetIndex: 0">
         <a-plane src="#card" position="0 0.5 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
         <!-- Make the images clickable by using click events -->
-        <a-image src="#phoneModel" position="0.6 0.15 0" geometry="primitive: circle" scale="0.075 0.075 1" cursor-listener></a-image>
-        <a-image src="#mailModel" position="0.6 0 0" geometry="primitive: circle" scale="0.075 0.075 1" cursor-listener></a-image>
-        <a-image src="#whatsappModel" position="0.6 -0.15 0" geometry="primitive: circle" scale="0.075 0.075 1" cursor-listener></a-image>
+        <a-image id="phoneButton" class="clickable" src="#phoneModel" position="0.6 0.15 0" geometry="primitive: circle" scale="0.075 0.075 1" cursor-listener></a-image>
+        <a-image id="mailButton" class="clickable" src="#mailModel" position="0.6 0 0" geometry="primitive: circle" scale="0.075 0.075 1" cursor-listener></a-image>
+        <a-image id="whatsappButton" class="clickable" src="#whatsappModel" position="0.6 -0.15 0" geometry="primitive: circle" scale="0.075 0.075 1" cursor-listener></a-image>
       </a-entity>
     </a-scene>
-    
+    <script>
+    const phonePlane = document.querySelector('#phoneButton');
+phonePlane.addEventListener("click", event => {
+  var url = "tel:+917709290535"; // Replace with your actual URL
+            window.open(url, "_blank");
+});
+      const mailPlane = document.querySelector('#mailButton');
+mailPlane.addEventListener("click", event => {
+  var url = "mailto:creativewindows.rajesh@gmail.com"; // Replace with your actual URL
+            window.open(url, "_blank");
+});
+      const whatsappPlane = document.querySelector('#whatsappButton');
+whatsappPlane.addEventListener("click", event => {
+  var url = "https://wa.me/+917709290535"; // Replace with your actual URL
+            window.open(url, "_blank");
+});
+    </script>
   </body>
 </html>
